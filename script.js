@@ -34,6 +34,7 @@
       prompt to try again
 */
 
+
 /*
   functions:
     startGame()
@@ -50,5 +51,25 @@
     saveScore()
     clearScores()
     toggleScores()
-
 */
+// const $button = $('button')
+$('button').on('click', function(){
+  var counter = 10;
+
+  setInterval(function() {
+    counter--;
+    if (counter >= 0) {
+      let span = $('#timer');
+      span.text(counter);
+    }
+    // Display 'counter' wherever you want to display it.
+    if (counter === 0) {
+    //    alert('this is where it happens');
+        clearInterval(counter);
+    }
+    console.log(counter);
+
+  }, 1000);
+  $('button').hide();
+
+});
