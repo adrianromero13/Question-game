@@ -53,7 +53,7 @@
     toggleScores()
 */
 // const $button = $('button')
-$('button').on('click', function(){
+$('#startQuiz').on('click', function(){
   let counter = 15.00;
 
   setInterval(function() {
@@ -72,4 +72,7 @@ $('button').on('click', function(){
   }, 1000);
   $('.gameStart').hide();
 
+});
+$('.reset').on('click', function() {
+  location.reload();
 });
