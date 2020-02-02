@@ -54,7 +54,7 @@
 */
 // const $button = $('button')
 $('button').on('click', function(){
-  var counter = 10;
+  let counter = 15.00;
 
   setInterval(function() {
     counter--;
@@ -64,12 +64,12 @@ $('button').on('click', function(){
     }
     // Display 'counter' wherever you want to display it.
     if (counter === 0) {
-    //    alert('this is where it happens');
+       alert("Time's Up!");
         clearInterval(counter);
     }
     console.log(counter);
 
   }, 1000);
-  $('button').hide();
+  $('.gameStart').hide();
 
 });
