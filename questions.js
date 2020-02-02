@@ -31,4 +31,14 @@ const questions = [
       },
   ];
 
-  
+  let $questionsBegin = $('.questionsBegin');
+  let $newButton = $('<button>');
+
+
+  $questionsBegin.hide();
+
+  $('button').on('click', function(){
+    $questionsBegin.show();
+
+    
+  });
