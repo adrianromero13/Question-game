@@ -40,26 +40,4 @@ console.log(array);
 
 
 
-  let $questionsBegin = $('.questionsBegin');
-  let $newButton = $('<button>');
-  let $showQuestions = $('#showQuestions');
-  let $showAnswers = $('#showAnswers');
-  let $displayOutcome = $('#displayOutcome');
 
-  
-
-// hides the questions section until the start button is pressed
-  const title = questions.title;
-  const choose = JSON.stringify(questions.choices);
-  const answer = questions.answer;
-  console.log(choose);
-  const $question = $('<h4>').text(title);
-  const $choose = $('<button>').text(choose);
-  
-  $questionsBegin.hide();
-  $('button').on('click', function(){
-    $questionsBegin.show();
-
-    
-      
-  });
