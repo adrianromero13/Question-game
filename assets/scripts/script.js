@@ -2,15 +2,15 @@
 
 /*
   on page load: 
-    show game start screen
-    include how to play instructions
-    add start quiz button
+    show game start screen                done
+    include how to play instructions      done
+    add start quiz button                 done
     
   on start button click:
-    hide game-start div 
+    hide game-start div                   done
     show questions div
     show question
-    start timer
+    start timer                           done
 
   on answer selection:
     check to see if answer is correct
@@ -53,6 +53,8 @@
     toggleScores()
 */
 // const $button = $('button')
+
+// function begins quiz and timer
 $('#startQuiz').on('click', function(){
   let counter = 15.00;
 
@@ -62,7 +64,7 @@ $('#startQuiz').on('click', function(){
       let span = $('#timer');
       span.text(counter);
     }
-    // Display 'counter' wherever you want to display it.
+    // Display 'counter'
     if (counter === 0) {
        alert("Time's Up!");
         clearInterval(counter);
@@ -70,9 +72,12 @@ $('#startQuiz').on('click', function(){
     console.log(counter);
 
   }, 1000);
+  // hides gameSart div to clear screen for quiz
   $('.gameStart').hide();
 
 });
+
+// reset button that refreshes the page to start all over
 $('.reset').on('click', function() {
   location.reload();
 });
