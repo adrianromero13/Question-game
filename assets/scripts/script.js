@@ -55,29 +55,3 @@
 // const $button = $('button')
 
 // function begins quiz and timer
-$('#startQuiz').on('click', function(){
-  let counter = 15.00;
-
-  setInterval(function() {
-    counter--;
-    if (counter >= 0) {
-      let span = $('#timer');
-      span.text(counter);
-    }
-    // Display 'counter'
-    if (counter === 0) {
-       alert("Time's Up!");
-        clearInterval(counter);
-    }
-    console.log(counter);
-
-  }, 1000);
-  // hides gameSart div to clear screen for quiz
-  $('.gameStart').hide();
-
-});
-
-// reset button that refreshes the page to start all over
-$('.reset').on('click', function() {
-  location.reload();
-});
