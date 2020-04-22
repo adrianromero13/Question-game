@@ -4,7 +4,6 @@ let questionAtm = 0;
 let counter = 15.00;
 let $questionsBegin = $('.questionsBegin');
 let $showQuestions = $('#showQuestions');
-let $getQuestion = $('#displayQuestions');
 let $getChoices = $('#displayChoices');
 
 // mapped variables (questions)
@@ -55,7 +54,12 @@ function showQuestion () {
     //set local variable
     let question = questions[questionAtm];
     //change display question content
-    $getQuestion.textContent = question.title;
+    // $getQuestion.innerHTML = '';
+    let $getQuestion = $('#displayQuestions');
+
+    // $getQuestion.innerHTML = question.title;
+  
+    $getQuestion.text(question.title);
     //refresh displayChoices div content
     $getChoices.innerHTML = '';
     //append new choices using a for each function
@@ -72,6 +76,8 @@ function showQuestion () {
     // //display new button
     // console.log($newButton);
     // $getQuestion.appendChild($newButton);
+    console.log(question.title);
+    
 });
 //call out function with an onclick for next
 };
