@@ -3,7 +3,6 @@ let questionAtm = 0;
 // global variables
 let counter = 15.00;
 let $questionsBegin = $('.questionsBegin');
-let $newButton = $('<button>');
 let $showQuestions = $('#showQuestions');
 let $getQuestion = $('#displayQuestions');
 let $getChoices = $('#displayChoices');
@@ -44,6 +43,7 @@ $('#startQuiz').on('click', function () {
 $questionsBegin.hide();
 $('button').on('click', function () {
     $questionsBegin.show();
+    showQuestion();
 });
 
 // reset button that refreshes the page to start all over
@@ -54,20 +54,32 @@ $('.reset').on('click', function () {
 function showQuestion () {
     //set local variable
     let question = questions[questionAtm];
-
     //change display question content
-
+    $getQuestion.textContent = question.title;
     //refresh displayChoices div content
-
+    $getChoices.innerHTML = '';
     //append new choices using a for each function
-    
-    //call out function with an onclick for next
+    question.choices.forEach(function(choice, i) {
+        let $newButton = document.createElement("button");
+        $newButton.setAttribute("class", "choice");
+        $newButton.setAttribute("value", choice);
+        $newButton.textContent = i + 1 + "] " + choice;
+        $getChoices.append($newButton);
+    //     let $newButton = $getQuestion.add("button")
+    //             .addClass("choice")
+    //             .text(choice);
+    //     $newButton.textContent = i + 1 + "]" + choice;
+    // //display new button
+    // console.log($newButton);
+    // $getQuestion.appendChild($newButton);
+});
+//call out function with an onclick for next
 };
 
-function answerQuestion () {
-    //penalize if wrong answer
+// function answerQuestion () {
+//     //penalize if wrong answer
 
-    //
-}
+//     //
+// }
 
 
