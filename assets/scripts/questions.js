@@ -31,12 +31,6 @@ const questions = [
       },
   ];
 
-  let array = $.map(questions, function(value, index) {
-    return [value];
-});
-
-
-console.log(array);
 
 
 
