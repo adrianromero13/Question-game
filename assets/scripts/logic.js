@@ -1,21 +1,16 @@
-let questionAtm = 0;
-
 // global variables
-let counter = 15.00;
+
 let $questionsBegin = $('.questionsBegin');
 let $showQuestions = $('#showQuestions');
 let $getChoices = $('#displayChoices');
+let $qNumber = $('#qNumber');
 
-// mapped variables (questions)
-// const title = questions.title;
-// const choose = JSON.stringify(questions.choices);
-// const answer = questions.answer;
-// console.log(answer);
-// const $question = $('<h4>').text(title);
-// const $choose = $('<button>').text(choose);
 
-// console.log("from logic.js", array);
-
+let counter = 45.00;
+let questionAtm = 0;
+let question = questions[questionAtm];
+let answer = question.answer;
+let newQuestion =$qNumber.text(questionAtm + 1);
 
 
 // on click function for timer
@@ -43,6 +38,8 @@ $questionsBegin.hide();
 $('button').on('click', function () {
     $questionsBegin.show();
     showQuestion();
+    newQuestion;
+    
 });
 
 // reset button that refreshes the page to start all over
@@ -52,7 +49,6 @@ $('.reset').on('click', function () {
 
 function showQuestion () {
     //set local variable
-    let question = questions[questionAtm];
     //change display question content
     // $getQuestion.innerHTML = '';
     let $getQuestion = $('#displayQuestions');
@@ -63,29 +59,28 @@ function showQuestion () {
     //refresh displayChoices div content
     $getChoices.innerHTML = '';
     //append new choices using a for each function
-    question.choices.forEach(function(choice, i) {
+    question.choices.forEach(function(choice, index) {
         let $newButton = document.createElement("button");
-        $newButton.setAttribute("class", "choice");
+        $newButton.setAttribute("class", "choiceBtn");
         $newButton.setAttribute("value", choice);
-        $newButton.textContent = i + 1 + "] " + choice;
+        $newButton.textContent = index + 1 + "] " + choice;
         $getChoices.append($newButton);
-    //     let $newButton = $getQuestion.add("button")
-    //             .addClass("choice")
-    //             .text(choice);
-    //     $newButton.textContent = i + 1 + "]" + choice;
-    // //display new button
-    // console.log($newButton);
-    // $getQuestion.appendChild($newButton);
+    
     console.log(question.title);
     
 });
 //call out function with an onclick for next
 };
 
-// function answerQuestion () {
-//     //penalize if wrong answer
+function answerQuestion () {
+    //is answer right?
+    if (this.value != question.answer) {
+        console.log(question);
+        counter -= 10;
+    }
+    //add soundtrack for wrong answer
 
-//     //
-// }
+
+}
 
 
