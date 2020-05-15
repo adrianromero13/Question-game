@@ -7,9 +7,8 @@ let $qNumber = $('#qNumber');
 let $answered = $('#answerCheck');
 
 
-let counter = 45.00;
+let counter = 60.00;
 let questionAtm = 0;
-let newQuestion = $qNumber.text(questionAtm + 1);
 
 
 // on click function for timer
@@ -37,7 +36,6 @@ $questionsBegin.hide();
 $('button').on('click', function () {
   $questionsBegin.show();
   showQuestion();
-  newQuestion;
 
 });
 
@@ -51,6 +49,7 @@ function showQuestion() {
   let question = questions[questionAtm];
   //change display question content
   let $getQuestion = $('#displayQuestions');
+  $qNumber.text(questionAtm + 1);
 
   $getQuestion.text(question.title);
   //refresh displayChoices div content
@@ -76,9 +75,10 @@ function answerQuestion() {
   //is answer right?
   let qAnswer = questions[questionAtm].answer;
 
+
   if (this.value != qAnswer) {
     console.log(qAnswer);
-    counter -= 10;
+    counter -= 15;
     if (counter < 0) {
       counter = 0;
     }
@@ -86,6 +86,7 @@ function answerQuestion() {
     $answered.text("WRONG!");
   } else {
     //add soundtrack for right answer
+    counter += 3;
     $answered.text("CORRECT!");
   }
   //change the question to the next index
@@ -96,10 +97,10 @@ function answerQuestion() {
     //how to end the quiz?
     $questionsBegin.hide(); //hides the questions div
   } else {
-    newQuestion;
     showQuestion(); //moves to next question
   }
 
-}
+};
+
 
 
