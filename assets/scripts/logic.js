@@ -1,13 +1,15 @@
 // global variables
 
 let $questionsBegin = $('.questionsBegin');
+let $highScores = $('.highScores');
 let $showQuestions = $('#showQuestions');
 let $getChoices = $('#displayChoices');
 let $qNumber = $('#qNumber');
 let $answered = $('#answerCheck');
+let $yourFinalScore = $(".yourFinalScore");
 
 
-let counter = 60.00;
+let counter = 60;
 let questionAtm = 0;
 
 
@@ -22,7 +24,7 @@ $('#startQuiz').on('click', function () {
     // Display 'counter'
     if (counter === 0) {
       alert("Game Over!");
-      clearInterval(counter);
+      finishGame();
     }
 
   }, 1000);
@@ -33,6 +35,7 @@ $('#startQuiz').on('click', function () {
 
 // hides the questions section until the start button is pressed
 $questionsBegin.hide();
+// $highScores.hide();
 $('button').on('click', function () {
   $questionsBegin.show();
   showQuestion();
@@ -57,7 +60,7 @@ function showQuestion() {
   //append new choices using a for each function
   question.choices.forEach(function (choice, index) {
     let $newButton = document.createElement("button");
-    $newButton.setAttribute("class", "choiceBtn");
+    $newButton.setAttribute("class", "btn btn-info btn-block choiceBtn" );
     $newButton.setAttribute("value", choice);
     $newButton.textContent = index + 1 + "] " + choice;
     // set an onclick to each button to trigger answering functionality
@@ -94,13 +97,26 @@ function answerQuestion() {
 
   //what if out of questions?
   if (questionAtm === questions.length) {
+    finishGame();
     //how to end the quiz?
-    $questionsBegin.hide(); //hides the questions div
   } else {
     showQuestion(); //moves to next question
   }
 
 };
+
+function finishGame() {
+  window.location.href = "./scores.html";
+
+  let finalScore= counter * 10;
+  $yourFinalScore.text(finalScore);
+  alert(`You Win! Your final score is:${finalScore}`);
+  clearInterval(counter);
+  $quesntionsBegin.hide();
+  // $highScores.show();
+  //change the html page
+  console.log(finalScore);
+}
 
 
 

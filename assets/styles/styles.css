@@ -2,3 +2,13 @@
     letter-spacing: 2px;
     
 };
+
+.wrapper {
+    max-width: 960px;
+    justify-content: center;
+}
+
+.innerWrapper {
+    max-width: 540px;
+    display: block;
+}

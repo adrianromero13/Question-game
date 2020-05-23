@@ -16,61 +16,86 @@
 </head>
 
 <body>
-  <div class="bg-dark justify-content-lg-center justify-content-md-center">
-    <div class="col-md-auto col-lg-auto">
+  <div class="container wrapper">
+    <div class="bg-dark justify-content-lg-center justify-content-md-center">
+      <div class="col-md-auto col-lg-auto">
 
-      <nav class="timer navbar-expand-lg navbar-dark bg-dark">
-        <a href="#" class="navbar-brand text-light">Bootcamp Week1-5 Quiz Game</a>
-        <h3 class="bg-dark text-light timer float-right" id="timer">timer</h3>
-      </nav>
+        <nav class="timer navbar-expand-lg navbar-dark bg-dark">
+          <a href="#" class="navbar-brand text-light">Bootcamp Quiz Game</a>
+        </nav>
 
-    </div>
-  </div>
-
-  <br>
-  <!-- Pre-begin click div -->
-  <div class="container container-fluid initScreen">
-    <h3 class="text-danger text-style text-center">JavaScript Quiz</h3>
-
-    <!-- gameStart Div -->
-    <div class="col-lg col-lg-offset display-block text-center gameStart">
-
-      <ul class="list-group">
-        <li class="list-group-item customList">
-          Answer 6 questions about JavaScript before running out of time!
-        </li>
-        <li class="list-group-item customList">
-          Every right answer gives you an extra 3 seconds!
-        </li>
-        <li class="list-group-item customList">
-          Every wrong answer and loose 20 seconds!
-        </li>
-        <li class="list-group-item customList">
-          Run out of time and you loose the game!
-        </li>
-        <li class="list-group-item customList">
-          Stick around after completing the quiz to see your score. Good Luck!
-        </li>
-      </ul>
-      <button class="bg-light text-danger text-center" id="startQuiz" type="reset">Start Quiz</button>
-
-    </div>
-    <!-- questions Div -->
-    <div class="col-lg col-lg-offset display-block text-center questionsBegin">
-      <button class="reset questionsBegin bg-light text-danger text-center" type="reset">Reset</button>
-      <div class="text-center questionsBegin">
-        Question Number: <span id="qNumber">1</span>
       </div>
-      <div id="showQuestions" >
-        <h4 id="displayQuestions">Question</h4>
-        <div id="displayChoices"></div>
-          <br/>
-          <div>
-            Click the best Answer
-            <span id="answerCheck"></span>
+    </div>
+
+    <br>
+    <!-- Pre-begin click div -->
+    <div class="innerWrapper mx-auto">
+      <div class="container container-fluid initScreen">
+        <h3 class="text-danger text-style text-center">JavaScript Quiz</h3>
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <a href="./scores.html" style="text-decoration: none">
+              <button type="button" class="btn btn-block btn-md btn-secondary ">Hi-Scores</button>
+            </a>
           </div>
+          <div class="col-4">
+            <h1 class="btn btn-md btn-secondary btn-block float-right" id="timer">timer</h1>
+          </div>
+        </div>
       </div>
+
+
+      <!-- gameStart Div -->
+      <div class="row justify-content-center">
+        <div class="col-lg col-lg-offset text-center gameStart">
+          <ul class="list-group-flush">
+            <li class="list-group-item">
+              Answer 6 questions about JavaScript before running out of time!
+            </li>
+            <li class="list-group-item">
+              Every right answer gives you an extra 3 seconds!
+            </li>
+            <li class="list-group-item">
+              Every wrong answer and loose 20 seconds!
+            </li>
+            <li class="list-group-item">
+              Run out of time and you loose the game!
+            </li>
+            <li class="list-group-item">
+              Stick around after completing the quiz to see your score. Good Luck!
+            </li>
+          </ul>
+          <button class="text-center btn btn-success" id="startQuiz" type="reset">Start Quiz</button>
+        </div>
+      </div>
+
+      <!-- questions Div -->
+      <div class="row justify-content-center">
+
+        <div class="col-lg col-lg-offset display-block text-center questionsBegin">
+          <div class="col-8 mx-auto">
+            
+            <button class="reset questionsBegin btn btn-warning btn-block text-danger text-center"
+            type="reset">Reset</button>
+          </div>
+          <div class="text-center questionsBegin">
+            Question Number: <span id="qNumber">1</span>
+          </div>
+          <div id="showQuestions">
+            <h4 id="displayQuestions">Question</h4>
+            <div id="displayChoices"></div>
+            <br />
+            <div>
+              Click the best Answer
+              <span id="answerCheck"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
+
 
   <!-- Optional JavaScript -->
   <script src="./assets/scripts/script.js"></script>
