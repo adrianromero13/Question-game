@@ -22,6 +22,7 @@
 
         <nav class="timer navbar-expand-lg navbar-dark bg-dark">
           <a href="#" class="navbar-brand text-light">Bootcamp Quiz Game</a>
+          <h1 class="btn btn-md btn-secondary btn-block float-right" id="timer">timer</h1>
         </nav>
 
       </div>
@@ -33,14 +34,14 @@
       <div class="container container-fluid initScreen">
         <h3 class="text-danger text-style text-center">JavaScript Quiz</h3>
         <div class="row justify-content-center">
-          <div class="col-4">
-            <a href="./scores.html" style="text-decoration: none">
+          <div class="col-4 mx-auto">
+            <!-- <a href="#" style="text-decoration: none"> -->
               <button type="button" class="btn btn-block btn-md btn-secondary ">Hi-Scores</button>
-            </a>
+            <!-- </a> -->
           </div>
-          <div class="col-4">
+          <!-- <div class="col-4">
             <h1 class="btn btn-md btn-secondary btn-block float-right" id="timer">timer</h1>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -93,12 +94,35 @@
         </div>
       </div>
     </div>
+    <!-- end of game wrapper -->
+
+    <div class="innerWrapper mx-auto gameOver">
+      <!-- You Win Div -->
+      <div class="row text-center highScores">
+        <div class="col">
+          <h3 class="text-danger"> HIGH SCORES </h3>
+          <p> Your final score is: <span id="yourFinalScore">00.00</span></p>
+          <div class="container justify-content-center text-center ">
+            <a href="./index.html">
+              <button type="button" class="btn btn-danger">Try Again</button>
+            </a>
+            <button id="submit" type="button" class="btn btn-success">Submit</button>
+          </div>
+
+          <ol class="list-group high-scores">
+            <br />
+            <h6>Initials: score</h6>
+          </ol>
+        </div>
+      </div>
+    </div>
+
 
   </div>
 
 
   <!-- Optional JavaScript -->
-  <script src="./assets/scripts/script.js"></script>
+  <script src="./assets/scripts/buttons.js"></script>
   <script src="./assets/scripts/questions.js"></script>
   <script src="./assets/scripts/logic.js"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

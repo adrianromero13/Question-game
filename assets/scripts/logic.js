@@ -6,41 +6,56 @@ let $showQuestions = $('#showQuestions');
 let $getChoices = $('#displayChoices');
 let $qNumber = $('#qNumber');
 let $answered = $('#answerCheck');
-let $yourFinalScore = $(".yourFinalScore");
+let $gameStart = $('.gameStart');
+let $yourFinalScore = $("#yourFinalScore");
+let $gameOver = $(".gameOver");
+
 
 
 let counter = 60;
-let questionAtm = 0;
+let thisQuestion = 0;
+let finalScore;
 
+$gameOver.hide();
+$questionsBegin.hide();
+
+function timer () {
+  counter--;
+  if (counter >=0) {
+    let span = $("#timer");
+    span.text(counter);
+  }
+  if (counter <= 0) {
+    counter = 0;
+    alert ("Game Over!");
+    finishGame();
+  }
+}
 
 // on click function for timer
 $('#startQuiz').on('click', function () {
-  setInterval(function () {
-    counter--;
-    if (counter >= 0) {
-      let span = $('#timer');
-      span.text(counter);
-    }
-    // Display 'counter'
-    if (counter === 0) {
-      alert("Game Over!");
-      finishGame();
-    }
+  t = setInterval(timer, 1000);
+  // setInterval(function () {
+  //   counter--;
+  //   if (counter >= 0) {
+  //     let span = $('#timer');
+  //     span.text(counter);
+  //   }
+  //   // Display 'counter'
+  //   if (counter <= 0) {
+  //     counter = 0;
+  //     alert("Game Over!");
+  //     finishGame();
+  //   }
 
-  }, 1000);
+  // }, 1000);
   // hides gameSart div to clear screen for quiz
-  $('.gameStart').hide();
-
+ $gameStart.hide();
+ $questionsBegin.show();
+ showQuestion();
 });
 
-// hides the questions section until the start button is pressed
-$questionsBegin.hide();
-// $highScores.hide();
-$('button').on('click', function () {
-  $questionsBegin.show();
-  showQuestion();
 
-});
 
 // reset button that refreshes the page to start all over
 $('.reset').on('click', function () {
@@ -49,10 +64,10 @@ $('.reset').on('click', function () {
 
 function showQuestion() {
   //set local variable
-  let question = questions[questionAtm];
+  let question = questions[thisQuestion];
   //change display question content
   let $getQuestion = $('#displayQuestions');
-  $qNumber.text(questionAtm + 1);
+  $qNumber.text(thisQuestion + 1);
 
   $getQuestion.text(question.title);
   //refresh displayChoices div content
@@ -76,15 +91,12 @@ function showQuestion() {
 
 function answerQuestion() {
   //is answer right?
-  let qAnswer = questions[questionAtm].answer;
+  let qAnswer = questions[thisQuestion].answer;
 
 
   if (this.value != qAnswer) {
     console.log(qAnswer);
     counter -= 15;
-    if (counter < 0) {
-      counter = 0;
-    }
     //add soundtrack for wrong answer
     $answered.text("WRONG!");
   } else {
@@ -93,30 +105,33 @@ function answerQuestion() {
     $answered.text("CORRECT!");
   }
   //change the question to the next index
-  questionAtm++;
+  thisQuestion++;
 
   //what if out of questions?
-  if (questionAtm === questions.length) {
+  if (thisQuestion === questions.length) {
+    clearInterval(t);
     finishGame();
     //how to end the quiz?
   } else {
     showQuestion(); //moves to next question
-  }
+  } 
 
 };
 
+//ending game
 function finishGame() {
-  window.location.href = "./scores.html";
-
-  let finalScore= counter * 10;
-  $yourFinalScore.text(finalScore);
-  alert(`You Win! Your final score is:${finalScore}`);
-  clearInterval(counter);
-  $quesntionsBegin.hide();
-  // $highScores.show();
+  $yourFinalScore.text(counter * 10);
+  
   //change the html page
-  console.log(finalScore);
-}
+  alert(`You Win! Your final score is:${finalScore}`);
+  // showScores();
+  $gameOver.show();
+};
 
+//handling scores
+// function showScores() {
 
+//   $gameOver.show();
 
+//   // window.location.href = "./scores.html";
+// };
