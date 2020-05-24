@@ -9,7 +9,7 @@ let $answered = $('#answerCheck');
 let $gameStart = $('.gameStart');
 let $yourFinalScore = $("#yourFinalScore");
 let $gameOver = $(".gameOver");
-
+let span = $("#timer");
 
 
 let counter = 60;
@@ -22,34 +22,18 @@ $questionsBegin.hide();
 function timer () {
   counter--;
   if (counter >=0) {
-    let span = $("#timer");
     span.text(counter);
   }
   if (counter <= 0) {
     counter = 0;
     alert ("Game Over!");
-    finishGame();
+    finishGame(counter);
   }
 }
 
 // on click function for timer
 $('#startQuiz').on('click', function () {
   t = setInterval(timer, 1000);
-  // setInterval(function () {
-  //   counter--;
-  //   if (counter >= 0) {
-  //     let span = $('#timer');
-  //     span.text(counter);
-  //   }
-  //   // Display 'counter'
-  //   if (counter <= 0) {
-  //     counter = 0;
-  //     alert("Game Over!");
-  //     finishGame();
-  //   }
-
-  // }, 1000);
-  // hides gameSart div to clear screen for quiz
  $gameStart.hide();
  $questionsBegin.show();
  showQuestion();
@@ -120,10 +104,13 @@ function answerQuestion() {
 
 //ending game
 function finishGame() {
-  $yourFinalScore.text(counter * 10);
+  // counterScore = parseInt();
+  yourFinalScore = counter * 10;
+  $yourFinalScore.text(yourFinalScore);
+  alert(counter);
   
   //change the html page
-  alert(`You Win! Your final score is:${finalScore}`);
+  alert(`You Win! Your final score is:${yourFinalScore}`);
   // showScores();
   $gameOver.show();
 };
