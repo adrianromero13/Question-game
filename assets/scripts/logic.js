@@ -40,11 +40,13 @@ $('#startQuiz').on('click', function () {
  showQuestion();
 });
 
-
-
 // reset button that refreshes the page to start all over
 $('.reset').on('click', function () {
   location.reload();
+});
+
+$hsButton.on('click', function () {
+  window.location.href = './scores.html';
 });
 
 function showQuestion() {
@@ -53,7 +55,6 @@ function showQuestion() {
   //change display question content
   let $getQuestion = $('#displayQuestions');
   $qNumber.text(thisQuestion + 1);
-
   $getQuestion.text(question.title);
   //refresh displayChoices div content
   $getChoices.text('');
@@ -63,22 +64,14 @@ function showQuestion() {
     $newButton.setAttribute("class", "btn btn-info btn-block choiceBtn" );
     $newButton.setAttribute("value", choice);
     $newButton.textContent = index + 1 + "] " + choice;
-    // set an onclick to each button to trigger answering functionality
     $newButton.onclick = answerQuestion;
     console.log(choice);
     $getChoices.append($newButton);
-
-    console.log(question.title);
-
   });
-  //call out function with an onclick for next
 };
 
 function answerQuestion() {
-  //is answer right?
   let qAnswer = questions[thisQuestion].answer;
-
-
   if (this.value != qAnswer) {
     console.log(qAnswer);
     counter -= 15;
@@ -89,10 +82,7 @@ function answerQuestion() {
     counter += 3;
     $answered.text("CORRECT!");
   }
-  //change the question to the next index
   thisQuestion++;
-
-  //what if out of questions?
   if (thisQuestion === questions.length) {
     clearInterval(t);
     finishGame();
@@ -108,11 +98,9 @@ function finishGame() {
   // counterScore = parseInt();
   yourFinalScore = counter * 10;
   $yourFinalScore.text(yourFinalScore);
-  alert(counter);
   
   //change the html page
   alert(`You Win! Your final score is: ${yourFinalScore}`);
-  // showScores();
   $gameOver.show();
   $questionsBegin.hide();
 };
