@@ -36,7 +36,7 @@
         <div class="row justify-content-center">
           <div class="col-4 mx-auto">
             <!-- <a href="#" style="text-decoration: none"> -->
-              <button type="button" class="btn btn-block btn-md btn-secondary ">Hi-Scores</button>
+              <button type="button" class="btn btn-block btn-md btn-secondary hsButton">Hi-Scores</button>
             <!-- </a> -->
           </div>
           <!-- <div class="col-4">
@@ -71,15 +71,15 @@
       </div>
 
       <!-- questions Div -->
-      <div class="row justify-content-center">
+      <div class="row justify-content-center questionsBegin">
 
-        <div class="col-lg col-lg-offset display-block text-center questionsBegin">
+        <div class="col-lg col-lg-offset display-block text-center ">
           <div class="col-8 mx-auto">
             
-            <button class="reset questionsBegin btn btn-warning btn-block text-danger text-center"
+            <button class="reset  btn btn-warning btn-block text-danger text-center"
             type="reset">Reset</button>
           </div>
-          <div class="text-center questionsBegin">
+          <div class="text-center ">
             Question Number: <span id="qNumber">1</span>
           </div>
           <div id="showQuestions">
@@ -100,18 +100,22 @@
       <!-- You Win Div -->
       <div class="row text-center highScores">
         <div class="col">
-          <h3 class="text-danger"> HIGH SCORES </h3>
+          <!-- <h3 class="text-danger"> HIGH SCORES </h3> -->
           <p> Your final score is: <span id="yourFinalScore">00.00</span></p>
+          <form>
+            <label for="initials">Initials</label>
+            <input type="initials" class="form-control-sm" id="initials"/>
+          </form>
           <div class="container justify-content-center text-center ">
             <a href="./index.html">
               <button type="button" class="btn btn-danger">Try Again</button>
             </a>
+            <!-- handle submit functionality -->
             <button id="submit" type="button" class="btn btn-success">Submit</button>
           </div>
 
           <ol class="list-group high-scores">
             <br />
-            <h6>Initials: score</h6>
           </ol>
         </div>
       </div>

@@ -10,6 +10,7 @@ let $gameStart = $('.gameStart');
 let $yourFinalScore = $("#yourFinalScore");
 let $gameOver = $(".gameOver");
 let span = $("#timer");
+let $hsButton = $('.hsButton');
 
 
 let counter = 60;
@@ -110,10 +111,14 @@ function finishGame() {
   alert(counter);
   
   //change the html page
-  alert(`You Win! Your final score is:${yourFinalScore}`);
+  alert(`You Win! Your final score is: ${yourFinalScore}`);
   // showScores();
   $gameOver.show();
+  $questionsBegin.hide();
 };
+
+//handling the highScore button
+
 
 //handling scores
 // function showScores() {
