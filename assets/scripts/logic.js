@@ -1,16 +1,20 @@
-// global variables
-
+let $hsButton = $('.hsButton');
+let $gameStart = $('.gameStart');
 let $questionsBegin = $('.questionsBegin');
 let $highScores = $('.highScores');
+let $gameOver = $(".gameOver");
+let $reset = $('.reset');
+
+let $startQuiz = $('#startQuiz');
+let span = $("#timer");
+let $qNumber = $('#qNumber');
 let $showQuestions = $('#showQuestions');
 let $getChoices = $('#displayChoices');
-let $qNumber = $('#qNumber');
 let $answered = $('#answerCheck');
-let $gameStart = $('.gameStart');
 let $yourFinalScore = $("#yourFinalScore");
-let $gameOver = $(".gameOver");
-let span = $("#timer");
-let $hsButton = $('.hsButton');
+let $initials = $("#initials");
+let $submit = $("#submit");
+
 
 
 let counter = 60;
@@ -31,23 +35,6 @@ function timer () {
     finishGame(counter);
   }
 }
-
-// on click function for timer
-$('#startQuiz').on('click', function () {
-  t = setInterval(timer, 1000);
- $gameStart.hide();
- $questionsBegin.show();
- showQuestion();
-});
-
-// reset button that refreshes the page to start all over
-$('.reset').on('click', function () {
-  location.reload();
-});
-
-$hsButton.on('click', function () {
-  window.location.href = './scores.html';
-});
 
 function showQuestion() {
   //set local variable
@@ -96,17 +83,51 @@ function answerQuestion() {
 //ending game
 function finishGame() {
   // counterScore = parseInt();
-  yourFinalScore = counter * 10;
-  $yourFinalScore.text(yourFinalScore);
+  finalScore = counter * 10;
+  $yourFinalScore.text(finalScore);
   
   //change the html page
-  alert(`You Win! Your final score is: ${yourFinalScore}`);
+  alert(`You Win! Your final score is: ${finalScore}`);
   $gameOver.show();
   $questionsBegin.hide();
 };
 
-//handling the highScore button
+//onClick functions
+$startQuiz.on('click', function () {
+  t = setInterval(timer, 1000);
+ $gameStart.hide();
+ $questionsBegin.show();
+ showQuestion();
+});
 
+$reset.on('click', function () {
+  location.reload();
+});
+
+$hsButton.on('click', function () {
+  window.location.href = './scores.html';
+});
+
+$submit.on('click', function() {
+  handleScore();
+})
+
+//handling the highScore button
+function handleScore () {
+  initials = $initials.val().trim();
+  console.log('initials', initials);
+  //if statement to catch input
+  if (initials !== '') {
+    let scores = JSON.parse(window.localStorage.getItem('scores')) || [];
+    let newScore = {
+      score: finalScore,
+      userInitials: initials
+    };
+    scores.push(newScore);
+    window.localStorage.setItem('scores', JSON.stringify(scores));
+    window.location.href = './scores.html';
+  }
+}
 
 //handling scores
 // function showScores() {
