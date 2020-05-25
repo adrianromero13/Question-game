@@ -1,3 +1,7 @@
+//sound effects
+let soundCorrect = new Audio('assets/sfx/correct.wav');
+let soundWrong = new Audio('assets/sfx/wrong.wav');
+
 //select by classname
 let $gameStart = $('.gameStart');
 let $questionsBegin = $('.questionsBegin');
@@ -62,10 +66,12 @@ function answerQuestion() {
     counter -= 15;
     //add soundtrack for wrong answer
     $answered.text("WRONG!");
+    soundWrong.play();
   } else {
     //add soundtrack for right answer
     counter += 3;
     $answered.text("CORRECT!");
+    soundCorrect.play();
   }
   thisQuestion++;
   if (thisQuestion === questions.length) {
