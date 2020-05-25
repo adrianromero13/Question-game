@@ -2,7 +2,7 @@ let $reset = $('.reset');
 let $hsButton = $('.hsButton');
 let $startQuiz = $('#startQuiz');
 let $submit = $("#submit");
-
+let $clearScores = $("#clear");
 
 $startQuiz.on('click', function () {
     t = setInterval(timer, 1000);
@@ -16,10 +16,14 @@ $startQuiz.on('click', function () {
   });
   
   $hsButton.on('click', function () {
-    window.location.href = './scores.html';
+    hiScores();
   });
   
   $submit.on('click', function() {
     handleScore();
   });
-  
+
+  $clearScores.on('click', function() {
+      window.localStorage.removeItem("scores");
+      window.location.reload();
+  });

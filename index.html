@@ -28,7 +28,7 @@
 
     <br>
     <!-- Pre-begin click div -->
-    <div class="innerWrapper mx-auto">
+    <div class="innerWrapper mx-auto page">
       <div class="container container-fluid initScreen">
         <h3 class="text-danger text-style text-center">JavaScript Quiz</h3>
         <div class="row justify-content-center">
@@ -100,10 +100,10 @@
         <div class="col">
           <!-- <h3 class="text-danger"> HIGH SCORES </h3> -->
           <p> Your final score is: <span id="yourFinalScore">00.00</span></p>
-          <form>
+          <div>
             <label for="initials">Initials</label>
             <input type="text" class="form-control-sm" id="initials"/>
-          </form>
+          </div>
           <div class="container justify-content-center text-center ">
             <a href="./index.html">
               <button type="button" class="btn btn-danger">Try Again</button>
@@ -111,9 +111,24 @@
             <!-- handle submit functionality -->
             <button id="submit" type="button" class="btn btn-success">Submit</button>
           </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- hi Scores page -->
+    <div class="innerWrapper mx-auto highScorePage">
+      <div class="row text-center">
+        <div class="col">
+          <h3 class="text-danger"> HIGH SCORES </h3>
+          <div class="container justify-content-center text-center ">
+            <a href="./index.html">
+              <button type="button" class="btn btn-warning">Try Again</button>
+            </a>
+            <button id="clear" type="button" class="btn btn-danger">Clear Scores</button>
+          </div>
+  
           <ol class="list-group high-scores">
-            <br />
+            
           </ol>
         </div>
       </div>

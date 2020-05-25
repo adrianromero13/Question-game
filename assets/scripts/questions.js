@@ -5,9 +5,9 @@ const questions = [
     answer: "alerts"
   },
   {
-    title: "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses"
+    title: "The condition in an [if / else] statement is enclosed within ____.",
+    choices: ['""', "{}", "()", "[]"],
+    answer: "()"
   },
   {
     title: "Which of the following is NOT a javascript data type?",

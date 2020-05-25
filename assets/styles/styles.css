@@ -12,3 +12,12 @@
     max-width: 540px;
     display: block;
 }
+
+li {
+    padding: 5px;
+    list-style: square inside none;
+}
+
+li:nth-child(even) {
+    background-color: white;
+}

@@ -1,8 +1,10 @@
 //select by classname
 let $gameStart = $('.gameStart');
 let $questionsBegin = $('.questionsBegin');
-let $highScores = $('.highScores');
+let $highScores = $('.high-scores');
 let $gameOver = $(".gameOver");
+let $highScorePage = $('.highScorePage');
+let $page = $('.page');
 
 //select by id names
 let span = $("#timer");
@@ -20,6 +22,7 @@ let finalScore;
 
 $gameOver.hide();
 $questionsBegin.hide();
+$highScorePage.hide();
 
 function timer () {
   counter--;
@@ -100,10 +103,30 @@ function handleScore () {
     };
     scores.push(newScore);
     window.localStorage.setItem('scores', JSON.stringify(scores));
-    window.location.href = './scores.html';
+    // window.location.href = './scores.html';
+   
+    hiScores();
+  } else {
+    alert('Please provide initials');
   }
 };
 
 //Scores page logic
-
-
+function hiScores () {
+  $gameOver.hide();
+  $page.hide();
+  $highScorePage.show();
+  //get local storage array
+  let scores = JSON.parse(window.localStorage.getItem('scores')) || [];
+  //sort them from highest to lowest
+  scores.sort(function(a, b) {
+    return b.score - a.score;
+  });
+  //create a list item for each score
+  scores.forEach(function (score) {
+    let $li = document.createElement('li');
+    $li.setAttribute('class', 'list-group-flush list-group-item-info');
+    $li.textContent = score.userInitials + ':    ' + score.score;
+    $highScores.append($li);
+  });
+};
