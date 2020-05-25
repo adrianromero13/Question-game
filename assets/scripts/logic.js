@@ -52,7 +52,6 @@ function showQuestion() {
     $newButton.setAttribute("value", choice);
     $newButton.textContent = index + 1 + "] " + choice;
     $newButton.onclick = answerQuestion;
-    console.log(choice);
     $getChoices.append($newButton);
   });
 };
@@ -60,7 +59,6 @@ function showQuestion() {
 function answerQuestion() {
   let qAnswer = questions[thisQuestion].answer;
   if (this.value != qAnswer) {
-    console.log(qAnswer);
     counter -= 15;
     //add soundtrack for wrong answer
     $answered.text("WRONG!");
@@ -77,16 +75,13 @@ function answerQuestion() {
   } else {
     showQuestion(); //moves to next question
   } 
-
 };
 
 //ending game
 function finishGame() {
   // counterScore = parseInt();
   finalScore = counter * 10;
-  $yourFinalScore.text(finalScore);
-  
-  //change the html page
+  $yourFinalScore.text(finalScore); 
   alert(`You Win! Your final score is: ${finalScore}`);
   $gameOver.show();
   $questionsBegin.hide();
@@ -103,8 +98,6 @@ function handleScore () {
     };
     scores.push(newScore);
     window.localStorage.setItem('scores', JSON.stringify(scores));
-    // window.location.href = './scores.html';
-   
     hiScores();
   } else {
     alert('Please provide initials');

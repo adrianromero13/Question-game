@@ -25,25 +25,17 @@
         </nav>
       </div>
     </div>
-
-    <br>
+    <br />
     <!-- Pre-begin click div -->
     <div class="innerWrapper mx-auto page">
       <div class="container container-fluid initScreen">
         <h3 class="text-danger text-style text-center">JavaScript Quiz</h3>
         <div class="row justify-content-center">
           <div class="col-4 mx-auto">
-            <!-- <a href="#" style="text-decoration: none"> -->
-              <button type="button" class="btn btn-block btn-md btn-secondary hsButton">Hi-Scores</button>
-            <!-- </a> -->
+            <button type="button" class="btn btn-block btn-md btn-secondary hsButton">Hi-Scores</button>
           </div>
-          <!-- <div class="col-4">
-            <h1 class="btn btn-md btn-secondary btn-block float-right" id="timer">timer</h1>
-          </div> -->
         </div>
       </div>
-
-
       <!-- gameStart Div -->
       <div class="row justify-content-center">
         <div class="col-lg col-lg-offset text-center gameStart">
@@ -58,24 +50,17 @@
               Every wrong answer and loose 20 seconds!
             </li>
             <li class="list-group-item">
-              Run out of time and you loose the game!
-            </li>
-            <li class="list-group-item">
               Stick around after completing the quiz to see your score. Good Luck!
             </li>
           </ul>
           <button class="text-center btn btn-success" id="startQuiz" type="reset">Start Quiz</button>
         </div>
       </div>
-
       <!-- questions Div -->
       <div class="row justify-content-center questionsBegin">
-
         <div class="col-lg col-lg-offset display-block text-center ">
           <div class="col-8 mx-auto">
-            
-            <button class="reset  btn btn-warning btn-block text-danger text-center"
-            type="reset">Reset</button>
+            <button class="reset  btn btn-warning btn-block text-danger text-center" type="reset">Reset</button>
           </div>
           <div class="text-center ">
             Question Number: <span id="qNumber">1</span>
@@ -93,28 +78,23 @@
       </div>
     </div>
     <!-- end of game wrapper -->
-
     <div class="innerWrapper mx-auto gameOver">
-      <!-- You Win Div -->
       <div class="row text-center highScores">
         <div class="col">
-          <!-- <h3 class="text-danger"> HIGH SCORES </h3> -->
           <p> Your final score is: <span id="yourFinalScore">00.00</span></p>
           <div>
             <label for="initials">Initials</label>
-            <input type="text" class="form-control-sm" id="initials"/>
+            <input type="text" class="form-control-sm" id="initials" />
           </div>
           <div class="container justify-content-center text-center ">
             <a href="./index.html">
               <button type="button" class="btn btn-danger">Try Again</button>
             </a>
-            <!-- handle submit functionality -->
             <button id="submit" type="button" class="btn btn-success">Submit</button>
           </div>
         </div>
       </div>
     </div>
-
     <!-- hi Scores page -->
     <div class="innerWrapper mx-auto highScorePage">
       <div class="row text-center">
@@ -126,17 +106,11 @@
             </a>
             <button id="clear" type="button" class="btn btn-danger">Clear Scores</button>
           </div>
-  
-          <ol class="list-group high-scores">
-            
-          </ol>
+          <ol class="list-group high-scores"></ol>
         </div>
       </div>
     </div>
-
-
   </div>
-
 
   <!-- Optional JavaScript -->
   <script src="./assets/scripts/buttons.js"></script>
