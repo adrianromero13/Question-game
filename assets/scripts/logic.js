@@ -30,13 +30,12 @@ $highScorePage.hide();
 
 function timer () {
   counter--;
-  if (counter >=0) {
+  if (counter > 0) {
     span.text(counter);
   }
   if (counter <= 0) {
     counter = 0;
-    alert ("Game Over!");
-    finishGame(counter);
+    finishGame();
   }
 };
 
@@ -75,7 +74,6 @@ function answerQuestion() {
   }
   thisQuestion++;
   if (thisQuestion === questions.length) {
-    clearInterval(t);
     finishGame();
     //how to end the quiz?
   } else {
@@ -85,10 +83,10 @@ function answerQuestion() {
 
 //ending game
 function finishGame() {
-  // counterScore = parseInt();
+  clearInterval(t);
   finalScore = counter * 10;
   $yourFinalScore.text(finalScore); 
-  alert(`You Win! Your final score is: ${finalScore}`);
+  alert(`Game Over! Your final score is: ${finalScore}`);
   $gameOver.show();
   $questionsBegin.hide();
 };

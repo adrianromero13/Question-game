@@ -15,7 +15,7 @@
 
 li {
     padding: 5px;
-    list-style: square inside none;
+    list-style: decimal inside none;
 }
 
 li:nth-child(even) {
